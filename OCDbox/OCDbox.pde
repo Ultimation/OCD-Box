@@ -1,12 +1,12 @@
 //This is the main version for OCD box
 //It contains everything, including multiple modes.
 //firstly, all those lovely registers and such.
-int s1pin = A0;
-int s2pin = A1;
-int s3pin = A2;
-int s4pin = A3;
-int s5pin = A4;
-int s6pin = A5;
+int s1p = A0;
+int s2p = A1;
+int s3p = A2;
+int s4p = A3;
+int s5p = A4;
+int s6p = A5;
 int s1 = 0;
 int s2 = 0;
 int s3 = 0;
@@ -45,12 +45,12 @@ void setup() {
   pinMode(ledg, OUTPUT);
   pinMode(ledr, OUTPUT);
   //This is where the mode setup is. Firstly the inputs...
-  s1 = analogRead(s1pin);
-  s2 = analogRead(s2pin);
-  s3 = analogRead(s3pin);
-  s4 = analogRead(s4pin);
-  s5 = analogRead(s5pin);
-  s6 = analogRead(s6pin);
+  s1 = analogRead(s1p);
+  s2 = analogRead(s2p);
+  s3 = analogRead(s3p);
+  s4 = analogRead(s4p);
+  s5 = analogRead(s5p);
+  s6 = analogRead(s6p);
   //Now we know what we've got... time to set up what means what.
   if (((s1 + s2 + s3 + s4 + s6) < 500) && s5 > 500) {
     mode = 2;
@@ -66,12 +66,12 @@ void setup() {
 //So that should set it at one of the modes when its turned on, and not be bothered again
 void loop() { 
   //get inputs again as they may have changed and this is the loop
-  s1 = analogRead(s1pin);
-  s2 = analogRead(s2pin);
-  s3 = analogRead(s3pin);
-  s4 = analogRead(s4pin);
-  s5 = analogRead(s5pin);
-  s6 = analogRead(s6pin);  
+  s1 = analogRead(s1p);
+  s2 = analogRead(s2p);
+  s3 = analogRead(s3p);
+  s4 = analogRead(s4p);
+  s5 = analogRead(s5p);
+  s6 = analogRead(s6p);  
   //Now which mode we're in.
   if (mode == 0){
     if(s1 < 500){
