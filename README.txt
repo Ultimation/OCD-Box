@@ -48,8 +48,7 @@ of which cannot be in the up position, if it is in this position, then
 that single arm will come out and switch it back
 
 Mode 3: 
-Only currently designed, not fully written, not implimented. Only to be made soon. More is written about on blog. Basically you have to switch them on in correct order to get them all up to the top!
-
+You must turn the switches on from left to right for it to be allowed. No other pattern is allowed. If you go wrong you must restart. 
 
 Mode Madagascar: This is a mode that is enabled if no mode is enabled,
 which should never happen, it basically just flashes the LEDs and makes sure
