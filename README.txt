@@ -5,6 +5,10 @@ It is also the first time I have programmed in arduino, so yeah. It may be badly
 
 Program is Arduino, put into Arduinos IDE and it can be programmed onto arduino uno (and possibly other boards, I do not know). 
 
+
+If you want to just run this on your arduino, the only part you need is OCDbox, in there is the code, the rest are just individual parts for development.
+
+
 The main program is in OCDBox, the other directories are for parts of the program that i used to create them all.
 
 Follow the project, as well as schematics and plans at UltimationEE.Blogspot.com
