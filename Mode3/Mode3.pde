@@ -140,7 +140,7 @@ void loop() {
           digitalWrite(m6a, LOW);
           digitalWrite(m6b, HIGH);
         }
-        else if((s1 + s2 + s3 + s4 + s5 + s6) > 500) {
+        if((s1 + s2 + s3 + s4 + s5 + s6) > 500) {
           digitalWrite(ledr, HIGH);
           digitalWrite(ledg, LOW);
           Serial.println((s1 + s2 + s3 + s4 + s5 + s6), DEC);
