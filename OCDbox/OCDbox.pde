@@ -1,6 +1,7 @@
 //This is the main version for OCD box
 //It contains everything, including multiple modes.
 //firstly, all those lovely registers and such.
+#include <TrueRandom.h>
 int s1pin = A0;
 int s2pin = A1;
 int s3pin = A2;
@@ -13,6 +14,12 @@ int s3 = 0;
 int s4 = 0;
 int s5 = 0;
 int s6 = 0;
+int r1pin = 0;
+int r2pin = 0;
+int r3pin = 0;
+int r4pin = 0;
+int r5pin = 0;
+int r6pin = 0;
 int m1a = 00;
 int m1b = 01;
 int m2a = 02;
@@ -56,15 +63,29 @@ void setup() {
   //Blinks 3 times for mode 3, 2 for 2, ect.
   if (s1 > 500 && (s2 + s3 + s4 + s5 + s6) < 500) {
     mode = 3;
-    digitalWrite(ledr, HIGH);
-    digitalWrite(ledg, LOW);
-    delay(200);
-    digitalWrite(ledg, HIGH);
+    while(r1pin == r2pin || r1pin == r3pin || r1pin == r4pin || r1pin == r5pin || r1pin == r6pin || r2pin == r3pin || r2pin == r4pin || r2pin == r5pin || r2pin == r6pin || r3pin == r4pin || r3pin == r5pin || r3pin == r6pin || r4pin == r5pin || r4pin == r6pin || r5pin == r6pin) {
+      r1pin = TrueRandom.random(0, 6);
+      r2pin = TrueRandom.random(0, 6);
+      r3pin = TrueRandom.random(0, 6);
+      r4pin = TrueRandom.random(0, 6);    
+      r5pin = TrueRandom.random(0, 6);
+      r6pin = TrueRandom.random(0, 6);
+      digitalWrite(ledr, LOW);
+      digitalWrite(ledg, HIGH);
+      delay(2);
+      digitalWrite(ledg, LOW);
+      digitalWrite(ledr, HIGH);
+      delay(1);
+    }
     digitalWrite(ledr, LOW);
-    delay(200);
-    digitalWrite(ledr, HIGH);
+    digitalWrite(ledg, HIGH);
+    delay(100);
     digitalWrite(ledg, LOW);
-    delay(200);
+    digitalWrite(ledr, HIGH);
+    delay(100);
+    digitalWrite(ledr, LOW);
+    digitalWrite(ledg, HIGH);
+    delay(100);
   }
   else if (((s1 + s2 + s3 + s4 + s6) < 500) && s5 > 500) {
     mode = 2;
@@ -226,6 +247,12 @@ void loop() {
     }
   }
   else if (mode == 3){
+    s1 = analogRead(r1pin);
+    s2 = analogRead(r2pin);
+    s3 = analogRead(r3pin);
+    s4 = analogRead(r4pin);
+    s5 = analogRead(r5pin);
+    s6 = analogRead(r6pin);    
     //Here be mode 3, the one where it has to be the right pattern
     if (stage == 0) {
       //if all are down but the correct one, make stage = 1
