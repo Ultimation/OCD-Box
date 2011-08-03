@@ -72,10 +72,8 @@ void setup() {
       r6pin = TrueRandom.random(0, 6);
       digitalWrite(ledr, LOW);
       digitalWrite(ledg, HIGH);
-      delay(2);
       digitalWrite(ledg, LOW);
       digitalWrite(ledr, HIGH);
-      delay(1);
     }
     digitalWrite(ledr, LOW);
     digitalWrite(ledg, HIGH);
@@ -312,7 +310,7 @@ void loop() {
           digitalWrite(m6a, LOW);
           digitalWrite(m6b, HIGH);
         }
-        else if((s1 + s2 + s3 + s4 + s5 + s6) > 500) {
+        if((s1 + s2 + s3 + s4 + s5 + s6) > 500) {
           digitalWrite(ledr, HIGH);
           digitalWrite(ledg, LOW);
         }
