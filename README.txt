@@ -47,8 +47,7 @@ Mode 2: All the switches can be freely moved apart from switch 5,
 of which cannot be in the up position, if it is in this position, then
 that single arm will come out and switch it back
 
-Mode 3: 
-You must turn the switches on from left to right for it to be allowed. No other pattern is allowed. If you go wrong you must restart. 
+Mode 3: The task is to get all of the switches too the top. You have to do this in the right order. There is a bug in this mode to do with the LED output. 
 
 Mode Madagascar: This is a mode that is enabled if no mode is enabled,
 which should never happen, it basically just flashes the LEDs and makes sure
