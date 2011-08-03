@@ -55,7 +55,6 @@ void loop() {
   switch6 = analogRead(switch6pin);
 //the good codes will be here, if it is nto a good pattern
 //then it must flick them all back to the start.
-//There must be a better way than copy and pasting this 8 times...
   if (((switch1 + switch2 + switch3 + switch4 + switch5 + switch6) < 500)|| (switch1 > 500 && switch2 > 500 && switch3 > 500 && switch4 > 500 && switch5 > 500 && switch6 > 500) || ((switch1 + switch2 + switch3) < 500 && switch4 > 500 && switch5 > 500 && switch6 > 500) || ((switch4 + switch5 + switch6) < 500 && switch1 > 500 && switch2 > 500 && switch3 > 500  ) || ((switch4 + switch5 + switch6) < 500 && switch1 > 500 && switch2 > 500 && switch3 > 500  ) || ((switch2 + switch4 + switch6) < 500 && switch1 > 500 && switch3 > 500 && switch5 > 500  ) || ((switch1 + switch3 + switch5) < 500 && switch2 > 500 && switch4 > 500 && switch6 > 500  ) || ((switch1 + switch2 + switch5 + switch6) < 500 && switch3 > 500 && switch4 > 500) || ((switch3 + switch4) < 500 && switch1 > 500 && switch2 > 500 && switch5 > 500 && switch6 > 500) || ((switch2 + switch5) < 500 && switch1 > 500 && switch2 > 500 && switch4 > 500 && switch6 > 500) || ((switch1 + switch3 + switch4 + switch6) < 500 && switch2 > 500 && switch5 > 500)){
     //In otherwords, all low.
     digitalWrite(motor1a, HIGH);
@@ -76,19 +75,55 @@ void loop() {
 
 //This makes them all back to normal. 
   else {
-    digitalWrite(motor1a, LOW);
-    digitalWrite(motor1b, HIGH);
-    digitalWrite(motor2a, LOW);
-    digitalWrite(motor2b, HIGH);
-    digitalWrite(motor3a, LOW);
-    digitalWrite(motor3b, HIGH);
-    digitalWrite(motor4a, LOW);
-    digitalWrite(motor4b, HIGH);
-    digitalWrite(motor5a, LOW);
-    digitalWrite(motor5b, HIGH);
-    digitalWrite(motor6a, LOW);
-    digitalWrite(motor6b, HIGH);
     digitalWrite(ledr, HIGH); 
     digitalWrite(ledg, LOW);
+    if(switch1 < 500){
+      digitalWrite(motor1a, HIGH);
+      digitalWrite(motor1b, LOW);
+    }
+    if(switch1 > 500){
+      digitalWrite(motor1a, LOW);
+      digitalWrite(motor1b, HIGH);
+    }
+    if(switch2 < 500){
+      digitalWrite(motor2a, HIGH);
+      digitalWrite(motor2b, LOW);
+    }
+    if(switch2 > 500){
+      digitalWrite(motor2a, LOW);
+      digitalWrite(motor2b, HIGH);
+    }
+    if(switch3 < 500){
+      digitalWrite(motor3a, HIGH);
+      digitalWrite(motor3b, LOW);
+    }
+    if(switch3 > 500){
+      digitalWrite(motor3a, LOW);
+      digitalWrite(motor3b, HIGH);
+    }
+    if(switch4 < 500){
+      digitalWrite(motor4a, HIGH);
+      digitalWrite(motor4b, LOW);
+    }
+    if(switch4 > 500){
+      digitalWrite(motor4a, LOW);
+      digitalWrite(motor4b, HIGH);
+    }
+    if(switch5 < 500){
+      digitalWrite(motor5a, HIGH);
+      digitalWrite(motor5b, LOW);
+    }
+    if(switch5 > 500){
+      digitalWrite(motor5a, LOW);
+      digitalWrite(motor5b, HIGH);
+    }
+    if(switch6 < 500){
+      digitalWrite(motor6a, HIGH);
+      digitalWrite(motor6b, LOW);
+    }
+    if(switch6 > 500){
+      digitalWrite(motor6a, LOW);
+      digitalWrite(motor6b, HIGH);
+    }
   }
 }

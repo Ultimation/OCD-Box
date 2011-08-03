@@ -72,8 +72,10 @@ void setup() {
       r6pin = TrueRandom.random(0, 6);
       digitalWrite(ledr, LOW);
       digitalWrite(ledg, HIGH);
+      delay(2);
       digitalWrite(ledg, LOW);
       digitalWrite(ledr, HIGH);
+      delay(1);
     }
     digitalWrite(ledr, LOW);
     digitalWrite(ledg, HIGH);

@@ -39,36 +39,26 @@ void setup() {
 }
 void loop() {
   switch5 = analogRead(switch5pin);
+  digitalWrite(motor1a, HIGH);
+  digitalWrite(motor1b, LOW);
+  digitalWrite(motor2a, HIGH);
+  digitalWrite(motor2b, LOW);
+  digitalWrite(motor3a, HIGH);
+  digitalWrite(motor3b, LOW);
+  digitalWrite(motor4a, HIGH);
+  digitalWrite(motor4b, LOW);
+  digitalWrite(motor6a, HIGH);
+  digitalWrite(motor6b, LOW); 
   if (switch5 > 500) {
-    digitalWrite(motor1a, HIGH);
-    digitalWrite(motor1b, LOW);
-    digitalWrite(motor2a, HIGH);
-    digitalWrite(motor2b, LOW);
-    digitalWrite(motor3a, HIGH);
-    digitalWrite(motor3b, LOW);
-    digitalWrite(motor4a, HIGH);
-    digitalWrite(motor4b, LOW);
-    digitalWrite(motor5a, HIGH);
-    digitalWrite(motor5b, LOW);
-    digitalWrite(motor6a, HIGH);
-    digitalWrite(motor6b, LOW); 
-    digitalWrite(ledg, HIGH);
-    digitalWrite(ledr, LOW);
-  }
-  else {
-    digitalWrite(motor1a, HIGH);
-    digitalWrite(motor1b, LOW);
-    digitalWrite(motor2a, HIGH);
-    digitalWrite(motor2b, LOW);
-    digitalWrite(motor3a, HIGH);
-    digitalWrite(motor3b, LOW);
-    digitalWrite(motor4a, HIGH);
-    digitalWrite(motor4b, LOW);
     digitalWrite(motor5a, LOW);
     digitalWrite(motor5b, HIGH);
-    digitalWrite(motor6a, HIGH);
-    digitalWrite(motor6b, LOW); 
-    digitalWrite(ledg, LOW); 
+    digitalWrite(ledg, LOW);
     digitalWrite(ledr, HIGH);
+  }
+  else {
+    digitalWrite(motor5a, HIGH);
+    digitalWrite(motor5b, LOW);
+    digitalWrite(ledg, HIGH);
+    digitalWrite(ledr, LOW);
   }
 }
