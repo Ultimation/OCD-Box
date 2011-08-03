@@ -29,10 +29,11 @@ int m6a = 10;
 int m6b = 11;
 int ledg = 12;
 int ledr = 13;
-int mode = 0;
+int mode = 3;
 int stage = 0;
 //stage = how far along they've got
 void setup() {
+  Serial.begin(9600);
   pinMode(m1a, OUTPUT);
   pinMode(m1b, OUTPUT);
   pinMode(m2a, OUTPUT);
@@ -73,11 +74,9 @@ void loop() {
   s3 = analogRead(s3pin);
   s4 = analogRead(s4pin);
   s5 = analogRead(s5pin);
-  s6 = analogRead(s6pin);
-  if (mode != 3) {
-    mode = 3;
-  }  
-  else if (mode == 3){
+  s6 = analogRead(s6pin); 
+  Serial.println(s6, DEC);
+  if (mode == 3){
     //Here be the program to start
     //First to choose the pattern, to make it simple and then swap later
     //Let's make it you have to flick them from left to right
@@ -87,6 +86,8 @@ void loop() {
         stage = 1;
         digitalWrite(ledr, LOW);
         digitalWrite(ledg, HIGH);
+        Serial.println((s1 + s2 + s3 + s4 + s5 + s6), DEC);
+        
       }
       /*if switch 1 is up, switch it off
       if switch 2 is down, keep it down, ect */
@@ -142,10 +143,13 @@ void loop() {
         else if((s1 + s2 + s3 + s4 + s5 + s6) > 500) {
           digitalWrite(ledr, HIGH);
           digitalWrite(ledg, LOW);
+          Serial.println((s1 + s2 + s3 + s4 + s5 + s6), DEC);
+          
         }
         else {
           digitalWrite(ledr, LOW);
           digitalWrite(ledg, HIGH);
+          Serial.println((s1 + s2 + s3 + s4 + s5 + s6), DEC);
         }
       }
     }
@@ -164,73 +168,73 @@ void loop() {
         stage = 0;
       }
     }
-     if (stage == 2) {
-       if (s1 > 500 && s2 > 500 && (s3 + s4 + s5 + s6) < 500) {
-         stage = 2;
-         digitalWrite(ledr, LOW);
-         digitalWrite(ledg, HIGH);
-       }
-       else if(s1 > 500 && s2 > 500 && s3 > 500 && (s4 + s5 + s6) < 500) {
-         stage = 3;
-         digitalWrite(ledr, LOW);
-         digitalWrite(ledg, HIGH);
-       }
-       else {
-         stage = 0;       
-       }
-     }
-     if (stage == 3) {
-       if(s1 > 500 && s2 > 500 && s3 > 500 && (s4 + s5 + s6) < 500) {
-         stage = 3;
-         digitalWrite(ledr, LOW);
-         digitalWrite(ledg, HIGH);
-       }
-       else if(s1 > 500 && s2 > 500 && s3 > 500 && s4 > 500 && (s5 + s6) < 500) {
-         stage = 4;
-         digitalWrite(ledr, LOW);
-         digitalWrite(ledg, HIGH);
-       }
-       else {
-         stage = 0;
-       }
-     }
-     if (stage == 4) {
-       if(s1 > 500 && s2 > 500 && s3 > 500 && s4 > 500 && (s5 + s6) < 500 ) {   
-         stage = 4;
-         digitalWrite(ledr, LOW);
-         digitalWrite(ledg, HIGH);
-       }
-       else if(s1 > 500 && s2 > 500 && s3 > 500 && s4 > 500 && s5 > 500 && s6 < 500 ){
-         stage = 5;
-         digitalWrite(ledr, LOW);
-         digitalWrite(ledg, HIGH);
-       }
-     }
-     if (stage == 5) {
-       if(s1 > 500 && s2 > 500 && s3 > 500 && s4 > 500 && s5 > 500 && s6 < 500 ) {
-         stage = 5;
-         digitalWrite(ledr, LOW);
-         digitalWrite(ledg, HIGH);       
-       }
-       else if(s1+s2+s3+s4+s5+s6 > 500) {
-         stage = 6;
-         digitalWrite(ledr, LOW);
-         digitalWrite(ledg, HIGH);
-       }
-       else {
-         stage = 0;
-       }
-     }  
-     if (stage == 6){
-       if(s1+s2+s3+s4+s5+s6 > 500) {
-         stage = 6;
-         digitalWrite(ledr, LOW);
-         digitalWrite(ledg, HIGH);
-       }
-       else {
-         stage = 0;
-       }
-     }
+    if (stage == 2) {
+      if (s1 > 500 && s2 > 500 && (s3 + s4 + s5 + s6) < 500) {
+        stage = 2;
+        digitalWrite(ledr, LOW);
+        digitalWrite(ledg, HIGH);
+      }
+      else if(s1 > 500 && s2 > 500 && s3 > 500 && (s4 + s5 + s6) < 500) {
+        stage = 3;
+        digitalWrite(ledr, LOW);
+        digitalWrite(ledg, HIGH);
+      }
+      else {
+        stage = 0;       
+      }
+    }
+    if (stage == 3) {
+      if(s1 > 500 && s2 > 500 && s3 > 500 && (s4 + s5 + s6) < 500) {
+        stage = 3;
+        digitalWrite(ledr, LOW);
+        digitalWrite(ledg, HIGH);
+      }
+      else if(s1 > 500 && s2 > 500 && s3 > 500 && s4 > 500 && (s5 + s6) < 500) {
+        stage = 4;
+        digitalWrite(ledr, LOW);
+        digitalWrite(ledg, HIGH);
+      }
+      else {
+        stage = 0;
+      }
+    }
+    if (stage == 4) {
+      if(s1 > 500 && s2 > 500 && s3 > 500 && s4 > 500 && (s5 + s6) < 500 ) {   
+        stage = 4;
+        digitalWrite(ledr, LOW);
+        digitalWrite(ledg, HIGH);
+      }
+      else if(s1 > 500 && s2 > 500 && s3 > 500 && s4 > 500 && s5 > 500 && s6 < 500 ){
+        stage = 5;
+        digitalWrite(ledr, LOW);
+        digitalWrite(ledg, HIGH);
+      }
+    }
+    if (stage == 5) {
+      if(s1 > 500 && s2 > 500 && s3 > 500 && s4 > 500 && s5 > 500 && s6 < 500 ) {
+        stage = 5;
+        digitalWrite(ledr, LOW);
+        digitalWrite(ledg, HIGH);       
+      }
+      else if(s1+s2+s3+s4+s5+s6 > 500) {
+        stage = 6;
+        digitalWrite(ledr, LOW);
+        digitalWrite(ledg, HIGH);
+      }
+      else {
+        stage = 0;
+      }
+    }  
+    if (stage == 6){
+      if(s1+s2+s3+s4+s5+s6 > 500) {
+        stage = 6;
+        digitalWrite(ledr, LOW);
+        digitalWrite(ledg, HIGH);
+      }
+      else {
+        stage = 0;
+      }
+    }
   }
   else { //If we're not in a mode, WTF HAS HAPPNENED, FLASH LEDS
   //SHUT DOWN EVERYTHING
@@ -253,5 +257,4 @@ void loop() {
     digitalWrite(ledr, LOW);
     delay(100);
   }
-}
 }
