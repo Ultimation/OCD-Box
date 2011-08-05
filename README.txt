@@ -3,7 +3,11 @@ Welcome to OCD Box
 This is the first project I have done, so everything will be sketchy.
 It is also the first time I have programmed in arduino, so yeah. It may be badly written, but it works. (There are no goto's, it's okay)
 
-Program is Arduino, put into Arduinos IDE and it can be programmed onto arduino uno (and possibly other boards, I do not know). 
+Program is in Arduino (Based on wiring), put i tinto Arduinos IDE and it can be programmed onto an arduino uno (and possibly other boards, I do not know). 
+
+You will need the TrueRandom Libary. Found here 
+http://code.google.com/p/tinkerit/wiki/TrueRandom
+and have that installed in your arduino folder. 
 
 
 If you want to just run this on your arduino, the only part you need is OCDbox, in there is the code, the rest are just individual parts for development.
